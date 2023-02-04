@@ -1,0 +1,241 @@
+[gd_scene load_steps=11 format=3 uid="uid://dx4slvb27onm1"]
+
+[ext_resource type="Texture2D" uid="uid://danb3jcxp3h82" path="res://icon.svg" id="1_4ppmn"]
+[ext_resource type="Texture2D" uid="uid://bw5j3rmqv80c" path="res://Assets/Textures/Rudy Idle Sheet V1.png" id="2_3sa4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ud4"]
+size = Vector2(68, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sirco"]
+size = Vector2(68, 650)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4agd7"]
+size = Vector2(63.0191, 1150.86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmjbh"]
+size = Vector2(65.766, 1150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xflr"]
+size = Vector2(138, 146)
+
+[sub_resource type="Animation" id="Animation_usa0i"]
+resource_name = "enter"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 7, 7.2, 7.3, 7.5, 7.6, 7.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(35, 177), Vector2(35, 177), Vector2(36, 325), Vector2(35, 319), Vector2(36, 331), Vector2(36, 320), Vector2(36, 325), Vector2(36, 331), Vector2(34, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speech:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Speech/RichTextLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Speech/RichTextLabel2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_x1unk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, 322)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speech/RichTextLabel2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rwjy"]
+_data = {
+"RESET": SubResource("Animation_x1unk"),
+"enter": SubResource("Animation_usa0i")
+}
+
+[node name="Level1" type="Node2D"]
+
+[node name="WallLeft" type="TextureRect" parent="."]
+offset_right = 66.0
+offset_bottom = 250.0
+texture = ExtResource("1_4ppmn")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallLeft"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft/StaticBody2D"]
+position = Vector2(-6.5, -194)
+shape = SubResource("RectangleShape2D_t3ud4")
+
+[node name="WallLeft2" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 396.0
+offset_right = 65.0
+offset_bottom = 646.0
+texture = ExtResource("1_4ppmn")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallLeft2"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft2/StaticBody2D"]
+position = Vector2(-4.5, -195)
+shape = SubResource("RectangleShape2D_t3ud4")
+
+[node name="WallRight" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = 1085.0
+offset_right = 1151.0
+offset_bottom = 645.0
+texture = ExtResource("1_4ppmn")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRight"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight/StaticBody2D"]
+position = Vector2(-3.5, -1)
+shape = SubResource("RectangleShape2D_sirco")
+
+[node name="WallTop" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = -1.0
+offset_top = 66.0
+offset_right = 65.0
+offset_bottom = 1220.0
+rotation = -1.57294
+texture = ExtResource("1_4ppmn")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallTop"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop/StaticBody2D"]
+position = Vector2(-6.53278, 254.572)
+shape = SubResource("RectangleShape2D_4agd7")
+
+[node name="WallBottom" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = 4.0
+offset_top = 652.0
+offset_right = 70.0
+offset_bottom = 1802.0
+rotation = -1.57294
+texture = ExtResource("1_4ppmn")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBottom"]
+position = Vector2(66.9913, 4.14349)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom/StaticBody2D"]
+position = Vector2(-31.2197, 568.935)
+shape = SubResource("RectangleShape2D_bmjbh")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(33, 322)
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_4ppmn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_2xflr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "enter"
+libraries = {
+"": SubResource("AnimationLibrary_2rwjy")
+}
+
+[node name="Speech" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="Speech"]
+anchors_preset = -1
+offset_top = 550.0
+offset_right = 1150.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.305882, 0.196078, 0.0745098, 1)
+
+[node name="Face" type="Sprite2D" parent="Speech"]
+position = Vector2(92, 570)
+scale = Vector2(10, 10)
+texture = ExtResource("2_3sa4s")
+region_enabled = true
+region_rect = Rect2(22, 18, 18, 17)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Speech"]
+visible = false
+offset_left = 190.0
+offset_top = 567.0
+offset_right = 1140.0
+offset_bottom = 639.0
+text = "I have finally arrived at the mother root
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Speech"]
+visible = false
+offset_left = 190.0
+offset_top = 567.0
+offset_right = 1140.0
+offset_bottom = 639.0
+text = "Time to find Root Rot and put an end to his reign of terror."
