@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://8bgpl4v55iow"]
+[gd_scene load_steps=3 format=3 uid="uid://8bgpl4v55iow"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_g7fd7"]
+[ext_resource type="PackedScene" uid="uid://b8ov6dqfa0al5" path="res://Player/Player.tscn" id="2_yqqm4"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -27,3 +28,5 @@ stretch_shrink = 3
 handle_input_locally = false
 size = Vector2i(384, 216)
 render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_yqqm4")]

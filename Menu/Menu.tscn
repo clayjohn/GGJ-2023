@@ -59,7 +59,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Rudy the Root"
+text = "Rudy Versus Root Rot"
 label_settings = SubResource("LabelSettings_q536q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

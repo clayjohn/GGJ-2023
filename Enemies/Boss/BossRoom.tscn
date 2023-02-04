@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://brct8r7stkax0"]
+
+[ext_resource type="Texture2D" uid="uid://danb3jcxp3h82" path="res://icon.svg" id="1_p2jqp"]
+[ext_resource type="Script" path="res://Enemies/Boss/BossRoom.gd" id="1_sqlhj"]
+[ext_resource type="PackedScene" uid="uid://onmmy6vy74nn" path="res://Enemies/Boss/Boss.tscn" id="2_lpqm5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu337"]
+size = Vector2(68, 635)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51ttx"]
+size = Vector2(63.0191, 1150.86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvokt"]
+size = Vector2(65.7659, 502.827)
+
+[node name="BossRoom" type="Node2D"]
+script = ExtResource("1_sqlhj")
+metadata/movie_file = "test.avi"
+
+[node name="WallLeft" type="TextureRect" parent="."]
+offset_right = 66.0
+offset_bottom = 645.0
+texture = ExtResource("1_p2jqp")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallLeft"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft/StaticBody2D"]
+position = Vector2(-3.5, -4.00001)
+shape = SubResource("RectangleShape2D_qu337")
+
+[node name="WallRight" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = 1085.0
+offset_right = 1151.0
+offset_bottom = 645.0
+texture = ExtResource("1_p2jqp")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRight"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight/StaticBody2D"]
+position = Vector2(-3.5, -1)
+shape = SubResource("RectangleShape2D_qu337")
+
+[node name="WallTop" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = -1.0
+offset_top = 66.0
+offset_right = 65.0
+offset_bottom = 1220.0
+rotation = -1.57294
+texture = ExtResource("1_p2jqp")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallTop"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop/StaticBody2D"]
+position = Vector2(-6.53278, 254.572)
+shape = SubResource("RectangleShape2D_51ttx")
+
+[node name="WallBottom" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = 4.0
+offset_top = 652.0
+offset_right = 70.0
+offset_bottom = 1152.0
+rotation = -1.57294
+texture = ExtResource("1_p2jqp")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBottom"]
+position = Vector2(66.9913, 4.14349)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom/StaticBody2D"]
+position = Vector2(-29.4549, 244.551)
+shape = SubResource("RectangleShape2D_dvokt")
+
+[node name="WallBottom2" type="TextureRect" parent="."]
+layout_direction = 2
+offset_left = 652.0
+offset_top = 650.0
+offset_right = 718.0
+offset_bottom = 1150.0
+rotation = -1.57294
+texture = ExtResource("1_p2jqp")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBottom2"]
+position = Vector2(39.5, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom2/StaticBody2D"]
+position = Vector2(-4.04633, -67.9235)
+shape = SubResource("RectangleShape2D_dvokt")
+
+[node name="Boss" parent="." instance=ExtResource("2_lpqm5")]
+position = Vector2(577, 388)
