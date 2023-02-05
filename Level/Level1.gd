@@ -1,16 +1,11 @@
 extends Node2D
 
-
+var player: Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+	player = get_parent().get_player()
 
 func _on_exit_body_entered(body):
-	print("poopoo")
-	get_parent().switch_level()
+	print(body)
+	if body == player:
+		get_parent().switch_level()

@@ -98,14 +98,15 @@ func finished_attack():
 		$Attack/CollisionPolygon2D.disabled = true
 		$Sprite.play(current_animation)
 
-func enter_dungeon():
+func freeze_player():
+	$Shape.disabled = true
 	locked = true
+	
+func enter_dungeon():
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
-	position.x = 224
-	position.y = 0
 	$AnimationPlayer.play("Enter")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Enter":
-		print("I'm done")
 		locked = false
+		$Shape.disabled = false
