@@ -1,30 +1,124 @@
-[gd_scene load_steps=5 format=3 uid="uid://pynn61t5n1oy"]
+[gd_scene load_steps=17 format=3 uid="uid://pynn61t5n1oy"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_7hnij"]
-[ext_resource type="Texture2D" uid="uid://danb3jcxp3h82" path="res://icon.svg" id="2_7n0ll"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d50jg"]
-size = Vector2(16, 11)
+[ext_resource type="Texture2D" uid="uid://c5iifitsedw4q" path="res://Assets/Enemies/WormAttack-Sheet.png" id="2_tvror"]
+[ext_resource type="Texture2D" uid="uid://imeysgbwg3nj" path="res://Assets/Enemies/WormIdle-Sheet.png" id="3_5pyg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7u84"]
-radius = 90.2718
+radius = 59.0085
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meigl"]
+atlas = ExtResource("2_tvror")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5tqt"]
+atlas = ExtResource("2_tvror")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgh0a"]
+atlas = ExtResource("2_tvror")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qggc1"]
+atlas = ExtResource("2_tvror")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qeas"]
+atlas = ExtResource("3_5pyg3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cne0h"]
+atlas = ExtResource("3_5pyg3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fus2r"]
+atlas = ExtResource("3_5pyg3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nr27"]
+atlas = ExtResource("3_5pyg3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt5pw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meigl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5tqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgh0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qggc1")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qeas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cne0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fus2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nr27")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d50jg"]
+size = Vector2(22, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q63i7"]
+size = Vector2(43, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pi3k"]
+radius = 127.252
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_7hnij")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
-shape = SubResource("RectangleShape2D_d50jg")
-
-[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(0, -9)
-scale = Vector2(0.1875, 0.230469)
-texture = ExtResource("2_7n0ll")
 
 [node name="Vision" type="Area2D" parent="."]
 
 [node name="Sight" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_q7u84")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -27)
+sprite_frames = SubResource("SpriteFrames_mt5pw")
+animation = &"Attack"
+frame_progress = 0.565803
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -17.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_d50jg")
+
+[node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(3.5, 10)
+shape = SubResource("RectangleShape2D_q63i7")
+
+[node name="LongSite" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LongSite"]
+shape = SubResource("CircleShape2D_6pi3k")
+
 [connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="LongSite" to="." method="_on_long_site_body_entered"]
+[connection signal="body_exited" from="LongSite" to="." method="_on_long_site_body_exited"]
