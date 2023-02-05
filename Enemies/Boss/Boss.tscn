@@ -315,8 +315,6 @@ offset_bottom = -222.0
 bbcode_enabled = true
 text = "Welcome to the [wave amp=50 freq=2.5][rainbow freq=0.3 sat=10 val=20]heart of the root[/rainbow][/wave] Rudy."
 fit_content = true
-visible_characters = 50
-visible_ratio = 1.31579
 
 [node name="Label2" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -329,8 +327,6 @@ offset_bottom = -226.0
 bbcode_enabled = true
 text = "You are [shake rate=3 level=15]stunned[/shake], I can tell."
 fit_content = true
-visible_characters = 50
-visible_ratio = 1.78571
 
 [node name="Label3" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -343,8 +339,6 @@ offset_bottom = -175.0
 bbcode_enabled = true
 text = "I suppose you are thinking \"Root Rot looks so young, so pure. How can this be the big bad?\""
 fit_content = true
-visible_characters = 100
-visible_ratio = 1.0989
 
 [node name="Label4" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -357,8 +351,6 @@ offset_bottom = -222.0
 bbcode_enabled = true
 text = "Welcome to [tornado radius=4 freq=3]reality[/tornado] kid."
 fit_content = true
-visible_characters = 50
-visible_ratio = 2.17391
 
 [node name="Label5" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -371,8 +363,6 @@ offset_bottom = -163.0
 bbcode_enabled = true
 text = "Truth is I'm actually a nice guy, if you get to know me. But no one ever does."
 fit_content = true
-visible_characters = 100
-visible_ratio = 1.28205
 
 [node name="Label6" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -386,8 +376,6 @@ bbcode_enabled = true
 text = "Everyone has always picked on me for no reason.
 "
 fit_content = true
-visible_characters = 50
-visible_ratio = 1.04167
 
 [node name="Label7" type="RichTextLabel" parent="Dialogue"]
 visible = false
@@ -400,8 +388,6 @@ bbcode_enabled = true
 text = "Anyway, time for you to [color=red][shake rate=15 level=10]die[/shake][/color]. Fight me.
 "
 fit_content = true
-visible_characters = 50
-visible_ratio = 1.28205
 
 [node name="DialogueAnimation" type="AnimationPlayer" parent="Dialogue"]
 libraries = {
