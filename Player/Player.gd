@@ -34,6 +34,7 @@ func _physics_process(delta):
 		velocity = Vector2(0, 0)
 
 	get_animation()
+	$Attack.rotation = get_attack_rotation()
 
 	velocity *= SPEED
 	move_and_slide()
@@ -42,16 +43,13 @@ func _input(event):
 	if event.is_action_pressed("attack") and not attacking:
 		$Sprite.animation = "attack-light" + get_animation_direction(last_direction)
 		attacking = true
-		$Attack.rotation = get_attack_rotation()
-		print(get_attack_rotation())
 		attack_surroundings()
 	elif event.is_action_pressed("attack") and attacking:
 		attack_queued = true
 		
 func attack_surroundings():
-	print("attacking")
 	if not $Attack.has_overlapping_bodies(): return
-	print("has bodies")
+
 	for body in $Attack.get_overlapping_bodies():
 		if body.get("is_enemy"):
 			body.die()

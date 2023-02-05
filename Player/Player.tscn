@@ -774,6 +774,7 @@ libraries = {
 }
 
 [node name="Attack" type="Area2D" parent="."]
+position = Vector2(0, -16)
 rotation = -3.14159
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
