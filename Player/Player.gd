@@ -101,9 +101,11 @@ func finished_attack():
 func freeze_player():
 	$Shape.disabled = true
 	locked = true
+	$Sprite.animation = "idle-front-right"
 	
 func enter_dungeon():
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
+	position.y = -30
 	$AnimationPlayer.play("Enter")
 
 func _on_animation_player_animation_finished(anim_name):

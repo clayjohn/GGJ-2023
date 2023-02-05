@@ -625,7 +625,7 @@ size = Vector2(20, 8)
 
 [sub_resource type="Animation" id="Animation_htvfc"]
 resource_name = "Enter"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -636,7 +636,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(224, 0), Vector2(224, 30)]
+"values": [Vector2(224, -30), Vector2(224, 30)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -657,16 +657,15 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(224, 30)
+position = Vector2(224, 0)
 motion_mode = 1
 script = ExtResource("1_ijddw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ajapd")
-animation = &"idle-front-right"
+animation = &"run-front-right"
 autoplay = "idle-front-right"
-frame = 1
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
