@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmvbq5v0smht0"]
 
-[ext_resource type="Script" path="res://Menu/Menu.gd" id="1_4s5jp"]
+[ext_resource type="Script" path="res://Level/Level1.gd" id="1_ptcsm"]
 [ext_resource type="Texture2D" uid="uid://b3iew8cmocl55" path="res://Assets/Backgrounds/Level 1 Background.png" id="2_0dbee"]
 [ext_resource type="Texture2D" uid="uid://cmaxmors1b3ce" path="res://Assets/Backgrounds/Level 1 Tree Rot.png" id="3_5xgtl"]
 
@@ -37,7 +37,7 @@ offset_right = 0.36792
 offset_bottom = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4s5jp")
+script = ExtResource("1_ptcsm")
 
 [node name="Grass" type="TextureRect" parent="."]
 layout_mode = 1
@@ -129,4 +129,4 @@ shape = SubResource("RectangleShape2D_muvuk")
 position = Vector2(1377, 383)
 shape = SubResource("RectangleShape2D_muvuk")
 
-[connection signal="body_entered" from="Tree/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Tree/Area2D" to="." method="_on_exit_body_entered"]

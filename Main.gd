@@ -16,11 +16,13 @@ func _ready():
 	$Player.position.y = 128
 	next_level = 1
 	current_level = $Level
+	current_level.exit_reached.connect(switch_level)
 	
 func get_player():
 	return $Player
 	
-func switch_level():
+func switch_level(body):
+	if body != $Player: return
 	print("Switching to level ", next_level)
 	if next_level == 1: # Fade to black
 		$AnimationPlayer.play("FadeOut")
@@ -33,6 +35,7 @@ func _switch_level(level: int):
 	upcoming_level = levels[level-1].instantiate()
 	add_child.call_deferred(upcoming_level)
 	current_level = upcoming_level
+	current_level.exit_reached.connect(switch_level)
 	print(next_level)
 	next_level += 1
 	
@@ -56,5 +59,6 @@ func _on_animation_player_animation_finished(anim_name):
 		position.y = 0
 		upcoming_level.position.y = 0
 		current_level = upcoming_level
+		current_level.exit_reached.connect(switch_level)
 		print(next_level)
 		next_level += 1
