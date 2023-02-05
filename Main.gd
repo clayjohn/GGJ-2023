@@ -6,8 +6,7 @@ extends Control
 var levels = [preload("res://Level/Level1.tscn"),
 			preload("res://Level/Level2.tscn"),
 			preload("res://Level/Level3.tscn"),
-			preload("res://Level/Level4.tscn"),
-			preload("res://Enemies/Boss/BossRoom.tscn")]
+			preload("res://Level/Level5.tscn"),]
 var next_level: int
 var current_level
 var upcoming_level

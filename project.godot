@@ -23,6 +23,11 @@ window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 window/stretch/scale=3.0
 
+[editor]
+
+movie_writer/movie_file="speedrun.avi"
+movie_writer/fps=24
+
 [input]
 
 left={
