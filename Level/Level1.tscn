@@ -3,22 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://danb3jcxp3h82" path="res://icon.svg" id="1_4ppmn"]
 [ext_resource type="Texture2D" uid="uid://bw5j3rmqv80c" path="res://Assets/Textures/Rudy Idle Sheet V1.png" id="2_3sa4s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjok1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61qnv"]
 size = Vector2(34, 99)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7c2x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoa6d"]
 size = Vector2(38, 254)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l7rk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nashb"]
 size = Vector2(25, 445)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxe1b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2do5c"]
 size = Vector2(32.0288, 453.07)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpmnl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8f6e"]
 size = Vector2(138, 146)
 
-[sub_resource type="Animation" id="Animation_lgqer"]
+[sub_resource type="Animation" id="Animation_hco5l"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -46,7 +46,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_jnwli"]
+[sub_resource type="Animation" id="Animation_kov25"]
 resource_name = "enter"
 length = 8.5
 tracks/0/type = "value"
@@ -98,10 +98,10 @@ tracks/3/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5wqj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vexwm"]
 _data = {
-"RESET": SubResource("Animation_lgqer"),
-"enter": SubResource("Animation_jnwli")
+"RESET": SubResource("Animation_hco5l"),
+"enter": SubResource("Animation_kov25")
 }
 
 [node name="Level1" type="Node2D"]
@@ -117,7 +117,7 @@ stretch_mode = 1
 position = Vector2(15, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft/StaticBody2D"]
-shape = SubResource("RectangleShape2D_cjok1")
+shape = SubResource("RectangleShape2D_61qnv")
 
 [node name="WallLeft2" type="TextureRect" parent="."]
 offset_top = 156.0
@@ -131,7 +131,7 @@ stretch_mode = 1
 position = Vector2(15, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft2/StaticBody2D"]
-shape = SubResource("RectangleShape2D_cjok1")
+shape = SubResource("RectangleShape2D_61qnv")
 
 [node name="WallRight" type="TextureRect" parent="."]
 layout_direction = 2
@@ -147,7 +147,7 @@ position = Vector2(15, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight/StaticBody2D"]
 position = Vector2(6, 8)
-shape = SubResource("RectangleShape2D_v7c2x")
+shape = SubResource("RectangleShape2D_aoa6d")
 
 [node name="WallTop" type="TextureRect" parent="."]
 z_index = -1
@@ -165,7 +165,7 @@ position = Vector2(15, 224)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop/StaticBody2D"]
 position = Vector2(0.499995, -2.5)
-shape = SubResource("RectangleShape2D_6l7rk")
+shape = SubResource("RectangleShape2D_nashb")
 
 [node name="WallBottom" type="TextureRect" parent="."]
 layout_direction = 2
@@ -181,7 +181,7 @@ stretch_mode = 1
 position = Vector2(15, 224)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom/StaticBody2D"]
-shape = SubResource("RectangleShape2D_oxe1b")
+shape = SubResource("RectangleShape2D_2do5c")
 
 [node name="Door" type="Sprite2D" parent="."]
 position = Vector2(15, 100)
@@ -192,12 +192,12 @@ texture = ExtResource("1_4ppmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
 position = Vector2(-3, 2)
-shape = SubResource("RectangleShape2D_cpmnl")
+shape = SubResource("RectangleShape2D_r8f6e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter"
 libraries = {
-"": SubResource("AnimationLibrary_o5wqj")
+"": SubResource("AnimationLibrary_vexwm")
 }
 
 [node name="Speech" type="Node2D" parent="."]

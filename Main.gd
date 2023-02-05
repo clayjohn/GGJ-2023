@@ -6,8 +6,8 @@ extends Control
 var levels = [preload("res://Level/Level1.tscn")]
 
 func _ready():
-	$Player.position.x = 1344/3/2
-	$Player.position.y = 768/3/2
+	$Player.position.x = 1044/3.0/2.0
+	$Player.position.y = 368/3.0/2.0
 	
 func switch_level(level: int):
 	print("Switching to level ", level)

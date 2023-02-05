@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmvbq5v0smht0"]
+[gd_scene load_steps=10 format=3 uid="uid://cmvbq5v0smht0"]
 
 [ext_resource type="Script" path="res://Menu/Menu.gd" id="1_4s5jp"]
 [ext_resource type="Texture2D" uid="uid://b3iew8cmocl55" path="res://Assets/Backgrounds/Level 1 Background.png" id="2_0dbee"]
-[ext_resource type="Texture2D" uid="uid://do4plwdaw7f7u" path="res://Assets/Backgrounds/Level 1 Tree Healthy.png" id="3_2rwg2"]
+[ext_resource type="Texture2D" uid="uid://cmaxmors1b3ce" path="res://Assets/Backgrounds/Level 1 Tree Rot.png" id="3_5xgtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hagd"]
-size = Vector2(117, 38)
+size = Vector2(46, 38)
 
 [sub_resource type="SystemFont" id="SystemFont_se4kn"]
 subpixel_positioning = 0
@@ -18,6 +18,15 @@ outline_size = 8
 outline_color = Color(0.231373, 0.172549, 0.0705882, 1)
 shadow_size = 16
 shadow_color = Color(0.172549, 0.0588235, 0.0470588, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7w6t"]
+size = Vector2(585.849, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eggh"]
+size = Vector2(1349, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muvuk"]
+size = Vector2(63, 1134)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -47,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -0.218018
 offset_bottom = -0.0120239
-texture = ExtResource("3_2rwg2")
+texture = ExtResource("3_5xgtl")
 
 [node name="Enter" type="RichTextLabel" parent="Tree"]
 layout_mode = 1
@@ -67,8 +76,22 @@ text = "[color=green][font_size=16][wave amp=50 freq=2.5]Enter[/wave][/font_size
 position = Vector2(220, 256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/Area2D"]
-position = Vector2(17.5, 4)
+position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_0hagd")
+
+[node name="Left" type="StaticBody2D" parent="Tree"]
+scale = Vector2(0.333, 0.333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree/Left"]
+position = Vector2(671, 762)
+polygon = PackedVector2Array(-323, 6, -376.706, 6.76874, -369, -101, -355, -120, -347, -103, -340, -78, -316, -44, -279, -33, -235, -53, -201, -59, -171, -125, -172, -155, -160, -175, -148, -179, -150, -153, -145, -133, -120, -125, -96, -122, -65, -105, -89, 5)
+
+[node name="Left2" type="StaticBody2D" parent="Tree"]
+scale = Vector2(0.333, 0.333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree/Left2"]
+position = Vector2(672, 762)
+polygon = PackedVector2Array(291, 5, 358.03, 3.76575, 354, -80, 341, -101, 328, -94, 331, -78, 295, -47, 259, -55, 195, -50, 177, -72, 145, -78, 136, -119, 137, -142, 125, -132, 85, -127, 64, -112, 52, -98, 87, 4)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -81,5 +104,30 @@ grow_horizontal = 2
 text = "Rudy Versus Root Rot"
 label_settings = SubResource("LabelSettings_q536q")
 horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.33, 0.33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(230.303, 860.606)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_r7w6t")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1112.12, 866.667)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_r7w6t")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(677, -11)
+shape = SubResource("RectangleShape2D_1eggh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-30, 385)
+shape = SubResource("RectangleShape2D_muvuk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1377, 383)
+shape = SubResource("RectangleShape2D_muvuk")
 
 [connection signal="body_entered" from="Tree/Area2D" to="." method="_on_area_2d_body_entered"]

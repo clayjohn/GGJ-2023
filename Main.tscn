@@ -15,7 +15,6 @@ script = ExtResource("1_g7fd7")
 
 [node name="Level" parent="." instance=ExtResource("3_5surq")]
 layout_mode = 1
-anchors_preset = 15
 offset_right = 0.0
 offset_bottom = 0.0
 

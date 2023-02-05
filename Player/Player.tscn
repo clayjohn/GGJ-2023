@@ -629,12 +629,10 @@ motion_mode = 1
 script = ExtResource("1_ijddw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.8, 0.639216, 0.988235, 1)
-position = Vector2(30, 54)
+position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ajapd")
 animation = &"run-front-right"
 autoplay = "idle-front-right"
-frame = 1
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
@@ -642,6 +640,7 @@ shape = SubResource("RectangleShape2D_6ossb")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="Control" type="Control" parent="HUDLayer"]
 layout_mode = 3
