@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do4plwdaw7f7u"
-path="res://.godot/imported/Level 1 Tree Healthy.png-14e2dad7a4e8fd61e0cc4e622b9c37ca.ctex"
+uid="uid://dsnubu5yb6nui"
+path="res://.godot/imported/Level 2 Background.png-274e487fdd369bedb972f50fb662446a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/Level 1 Tree Healthy.png"
-dest_files=["res://.godot/imported/Level 1 Tree Healthy.png-14e2dad7a4e8fd61e0cc4e622b9c37ca.ctex"]
+source_file="res://Assets/Backgrounds/Level 2 Background.png"
+dest_files=["res://.godot/imported/Level 2 Background.png-274e487fdd369bedb972f50fb662446a.ctex"]
 
 [params]
 

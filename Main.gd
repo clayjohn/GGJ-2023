@@ -15,6 +15,5 @@ func switch_level(level: int):
 	remove_child.call_deferred(current_level)
 	current_level.queue_free.call_deferred()
 	add_child.call_deferred(levels[level-1].instantiate())
-	$Player.position.x = 30
-	$Player.position.y = 768/3/2
+	$Player.enter_dungeon()
 	

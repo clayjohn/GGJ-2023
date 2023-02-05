@@ -4,11 +4,14 @@ const SPEED = 100.0
 
 var current_animation = "idle-front-right"
 var last_direction = Vector2(1, 1) #front right
+var locked = false
 
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
 
 func _physics_process(delta):
+	if locked: return
+	
 	var directionx = Input.get_axis("left", "right")
 	var requested_animation = current_animation
 	var velocityx = Vector2(0, 0)
@@ -50,9 +53,18 @@ func get_animation():
 		else:
 			# back facing
 			requested_animation = "run-back-left"
-	if requested_animation != current_animation:
+	if requested_animation != current_animation and not $AnimationPlayer.is_playing():
 		current_animation = requested_animation
 		$Sprite.animation = current_animation
 
 func enter_dungeon():
+	locked = true
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
+	position.x = 224
+	position.y = 0
+	$AnimationPlayer.play("Enter")
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Enter":
+		print("I'm done")
+		locked = false

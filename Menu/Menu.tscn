@@ -94,6 +94,7 @@ position = Vector2(672, 762)
 polygon = PackedVector2Array(291, 5, 358.03, 3.76575, 354, -80, 341, -101, 328, -94, 331, -78, 295, -47, 259, -55, 195, -50, 177, -72, 145, -78, 136, -119, 137, -142, 125, -132, 85, -127, 64, -112, 52, -98, 87, 4)
 
 [node name="Title" type="Label" parent="."]
+z_index = 12
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -110,12 +111,10 @@ scale = Vector2(0.33, 0.33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(230.303, 860.606)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r7w6t")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1112.12, 866.667)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r7w6t")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
