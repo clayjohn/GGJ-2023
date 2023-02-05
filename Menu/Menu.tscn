@@ -1,40 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmvbq5v0smht0"]
 
+[ext_resource type="Script" path="res://Menu/Menu.gd" id="1_4s5jp"]
+[ext_resource type="Texture2D" uid="uid://b3iew8cmocl55" path="res://Assets/Backgrounds/Level 1 Background.png" id="2_0dbee"]
+[ext_resource type="Texture2D" uid="uid://do4plwdaw7f7u" path="res://Assets/Backgrounds/Level 1 Tree Healthy.png" id="3_2rwg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hagd"]
+size = Vector2(117, 38)
+
 [sub_resource type="SystemFont" id="SystemFont_se4kn"]
 subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_q536q"]
 font = SubResource("SystemFont_se4kn")
-font_size = 64
-font_color = Color(0.486275, 0.360784, 0.14902, 1)
-outline_size = 8
-outline_color = Color(0.231373, 0.172549, 0.0705882, 1)
-shadow_size = 16
-shadow_color = Color(0.172549, 0.0588235, 0.0470588, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_xq30w"]
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_ec5aq"]
-font = SubResource("SystemFont_xq30w")
-font_size = 32
-font_color = Color(0.486275, 0.360784, 0.14902, 1)
-outline_size = 8
-outline_color = Color(0.231373, 0.172549, 0.0705882, 1)
-shadow_size = 16
-shadow_color = Color(0.172549, 0.0588235, 0.0470588, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_jlkh7"]
-font = SubResource("SystemFont_xq30w")
-font_size = 32
-font_color = Color(0.486275, 0.360784, 0.14902, 1)
-outline_size = 8
-outline_color = Color(0.231373, 0.172549, 0.0705882, 1)
-shadow_size = 16
-shadow_color = Color(0.172549, 0.0588235, 0.0470588, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_w6jqq"]
-font = SubResource("SystemFont_xq30w")
 font_size = 32
 font_color = Color(0.486275, 0.360784, 0.14902, 1)
 outline_size = 8
@@ -44,47 +21,64 @@ shadow_color = Color(0.172549, 0.0588235, 0.0470588, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.36792
+offset_bottom = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4s5jp")
 
-[node name="Title" type="Label" parent="."]
+[node name="Grass" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "Rudy Versus Root Rot"
-label_settings = SubResource("LabelSettings_q536q")
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.218018
+offset_bottom = -0.0120239
+texture = ExtResource("2_0dbee")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Tree" type="TextureRect" parent="."]
+z_index = 12
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.218018
+offset_bottom = -0.0120239
+texture = ExtResource("3_2rwg2")
+
+[node name="Enter" type="RichTextLabel" parent="Tree"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.4
-anchor_right = 0.5
-anchor_bottom = 0.8
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.891
+offset_top = -29.988
+offset_right = -0.109009
 grow_horizontal = 2
-grow_vertical = 2
+bbcode_enabled = true
+text = "[color=green][font_size=16][wave amp=50 freq=2.5]Enter[/wave][/font_size][/color]"
 
-[node name="Start" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Start
-"
-label_settings = SubResource("LabelSettings_ec5aq")
+[node name="Area2D" type="Area2D" parent="Tree"]
+position = Vector2(220, 256)
 
-[node name="Settings" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Settings"
-label_settings = SubResource("LabelSettings_jlkh7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/Area2D"]
+position = Vector2(17.5, 4)
+shape = SubResource("RectangleShape2D_0hagd")
 
-[node name="Quit" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
-label_settings = SubResource("LabelSettings_w6jqq")
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.218018
+offset_bottom = -0.0120239
+grow_horizontal = 2
+text = "Rudy Versus Root Rot"
+label_settings = SubResource("LabelSettings_q536q")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Tree/Area2D" to="." method="_on_area_2d_body_entered"]

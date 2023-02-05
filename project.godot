@@ -16,6 +16,13 @@ run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Assets/Textures/icon.png"
 
+[display]
+
+window/size/viewport_width=1344
+window/size/viewport_height=768
+window/stretch/mode="canvas_items"
+window/stretch/scale=3.0
+
 [input]
 
 left={
