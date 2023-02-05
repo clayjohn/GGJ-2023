@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ceci362umbs38" path="res://Assets/Backgrounds/Level 2 Door Bottom.png" id="3_u0wpm"]
 [ext_resource type="Texture2D" uid="uid://berbj0v8lyh2w" path="res://Assets/Backgrounds/Level 2 Background Outside Glow.png" id="4_5ht2l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46bmw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y7ho"]
 size = Vector2(16, 70)
 
-[sub_resource type="Animation" id="Animation_c3587"]
+[sub_resource type="Animation" id="Animation_lbrpt"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -38,7 +38,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_5h2ui"]
+[sub_resource type="Animation" id="Animation_cfqmu"]
 resource_name = "enter"
 length = 5.5
 tracks/0/type = "value"
@@ -102,23 +102,23 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_28qw5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rnu3"]
 _data = {
-"RESET": SubResource("Animation_c3587"),
-"enter": SubResource("Animation_5h2ui")
+"RESET": SubResource("Animation_lbrpt"),
+"enter": SubResource("Animation_cfqmu")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldiyw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgah7"]
 size = Vector2(16, 243.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4lgi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xatsm"]
 size = Vector2(16, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gyhny"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_egvqm"]
 atlas = ExtResource("2_3sa4s")
 region = Rect2(22, 18, 18, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4eud"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjs8a"]
 size = Vector2(60, 5)
 
 [node name="Level1" type="Node2D"]
@@ -135,7 +135,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
 position = Vector2(0, -120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_46bmw")
+shape = SubResource("RectangleShape2D_4y7ho")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
@@ -148,12 +148,12 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
 position = Vector2(0, 120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_46bmw")
+shape = SubResource("RectangleShape2D_4y7ho")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter"
 libraries = {
-"": SubResource("AnimationLibrary_28qw5")
+"": SubResource("AnimationLibrary_4rnu3")
 }
 
 [node name="Background" type="TextureRect" parent="."]
@@ -174,33 +174,34 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 134)
-shape = SubResource("RectangleShape2D_ldiyw")
+shape = SubResource("RectangleShape2D_cgah7")
 
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(440, 134.25)
-shape = SubResource("RectangleShape2D_ldiyw")
+shape = SubResource("RectangleShape2D_cgah7")
 
 [node name="TopLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(86.75, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_m4lgi")
+shape = SubResource("RectangleShape2D_xatsm")
 
 [node name="TopRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(360, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_m4lgi")
+shape = SubResource("RectangleShape2D_xatsm")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(88, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_m4lgi")
+shape = SubResource("RectangleShape2D_xatsm")
 
 [node name="BottomRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(350, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_m4lgi")
+shape = SubResource("RectangleShape2D_xatsm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 12
 
 [node name="Speech" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -261,7 +262,7 @@ offset_top = -61.0
 offset_right = 51.0
 offset_bottom = -10.0
 grow_vertical = 0
-texture = SubResource("AtlasTexture_gyhny")
+texture = SubResource("AtlasTexture_egvqm")
 metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="Area2D" parent="."]
@@ -269,6 +270,6 @@ position = Vector2(224, 253)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("RectangleShape2D_o4eud")
+shape = SubResource("RectangleShape2D_kjs8a")
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
