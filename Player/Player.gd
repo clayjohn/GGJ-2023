@@ -15,6 +15,9 @@ var attack_queued = false
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
 
+func _ready():
+	PubSub.attack_player.connect(take_damage)
+
 func _physics_process(delta):
 	if locked: return
 	
@@ -42,11 +45,19 @@ func _input(event):
 	if event.is_action_pressed("attack") and not attacking:
 		$Sprite.animation = "attack-light" + get_animation_direction(last_direction)
 		attacking = true
-		$Attack/CollisionPolygon2D.disabled = false
 		$Attack.rotation = get_attack_rotation()
 		print(get_attack_rotation())
+		attack_surroundings()
 	elif event.is_action_pressed("attack") and attacking:
 		attack_queued = true
+		
+func attack_surroundings():
+	print("attacking")
+	if not $Attack.has_overlapping_bodies(): return
+	print("has bodies")
+	for body in $Attack.get_overlapping_bodies():
+		if body.get("is_enemy"):
+			body.die()
 
 func get_animation():
 	var requested_animation = "idle-front-right"
@@ -95,7 +106,6 @@ func finished_attack():
 		$Attack.rotation = get_attack_rotation()
 	else:
 		attacking = false
-		$Attack/CollisionPolygon2D.disabled = true
 		$Sprite.play(current_animation)
 
 func freeze_player():
@@ -112,3 +122,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Enter":
 		locked = false
 		$Shape.disabled = false
+		
+func take_damage(damage):
+	print("Hirt for ", damage)
+
+

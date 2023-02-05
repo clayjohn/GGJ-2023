@@ -6,6 +6,7 @@ enum STRAFE_DIR {VERT, HOR}
 var player: Node2D
 var can_see_player: bool
 var last_epoch = 0
+var is_enemy = true
 @export var direction: Vector2
 @export var patrol_pattern: WALK = WALK.STRAFE
 @export var patrol_period: float = 3000#ms
@@ -55,6 +56,9 @@ func _process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		direction = direction.bounce(collision.get_normal())
+		
+func die():
+	queue_free()
 
 func _on_vision_body_entered(body):
 	if body == player:
@@ -67,6 +71,7 @@ func _on_vision_body_exited(body):
 func _on_attack_range_body_entered(body):
 	if body == player:
 		$AnimatedSprite2D.animation = "Attack"
+		PubSub.attack_player.emit(1)
 
 func _on_attack_range_body_exited(body):
 	if body == player:
