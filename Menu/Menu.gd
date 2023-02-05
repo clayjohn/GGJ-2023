@@ -8,4 +8,4 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	print("Enter the dungeon") # Replace with function body.
-	get_parent().switch_level(1)
+	get_parent().switch_level()
