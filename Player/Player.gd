@@ -15,9 +15,6 @@ var attack_queued = false
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
 
-func _ready():
-	PubSub.attack_player.connect(take_damage)
-
 func _physics_process(delta):
 	if locked: return
 	

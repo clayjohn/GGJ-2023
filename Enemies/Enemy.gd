@@ -71,7 +71,7 @@ func _on_vision_body_exited(body):
 func _on_attack_range_body_entered(body):
 	if body == player:
 		$AnimatedSprite2D.animation = "Attack"
-		PubSub.attack_player.emit(1)
+		body.take_damage(1)
 
 func _on_attack_range_body_exited(body):
 	if body == player:
