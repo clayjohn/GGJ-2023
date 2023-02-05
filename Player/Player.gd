@@ -102,6 +102,7 @@ func finished_attack():
 	else:
 		attacking = false
 		$Sprite.play(current_animation)
+		$Attack/CollisionPolygon2D.disabled = true
 
 func freeze_player():
 	$Shape.disabled = true
@@ -120,5 +121,6 @@ func _on_animation_player_animation_finished(anim_name):
 		
 func take_damage(damage):
 	print("Hirt for ", damage)
+	$AnimationPlayer.play("hit")
 
 
