@@ -23,7 +23,7 @@ func get_player():
 	
 func switch_level(body):
 	if body != $Player: return
-	print("Switching to level ", next_level)
+
 	if next_level == 1: # Fade to black
 		$AnimationPlayer.play("FadeOut")
 	else:
@@ -36,11 +36,9 @@ func _switch_level(level: int):
 	add_child.call_deferred(upcoming_level)
 	current_level = upcoming_level
 	current_level.exit_reached.connect(switch_level)
-	print(next_level)
 	next_level += 1
 	
 func _switch_level_slide(level: int):
-	print(current_level)
 	$Player.freeze_player.call_deferred()
 	upcoming_level = levels[level-1].instantiate()
 	upcoming_level.position.y = 256
@@ -52,7 +50,6 @@ func _on_animation_player_animation_finished(anim_name):
 		$AnimationPlayer.play("FadeIn")
 		_switch_level(next_level)
 	elif anim_name == "Slide":
-		print(current_level)
 		current_level.visible = false
 		current_level.queue_free.call_deferred()
 		$Player.enter_dungeon.call_deferred()
@@ -60,5 +57,4 @@ func _on_animation_player_animation_finished(anim_name):
 		upcoming_level.position.y = 0
 		current_level = upcoming_level
 		current_level.exit_reached.connect(switch_level)
-		print(next_level)
 		next_level += 1

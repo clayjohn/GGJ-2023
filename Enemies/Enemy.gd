@@ -12,6 +12,7 @@ var is_enemy = true
 @export var patrol_period: float = 3000#ms
 @export var strafe_dir = STRAFE_DIR.VERT
 @export var speed = 45
+signal has_died
 
 func rand_unit():
 	return Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
@@ -58,6 +59,7 @@ func _process(delta):
 		direction = direction.bounce(collision.get_normal())
 		
 func die():
+	has_died.emit()
 	queue_free()
 
 func _on_vision_body_entered(body):
