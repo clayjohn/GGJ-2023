@@ -878,7 +878,6 @@ color = Color(0.305882, 0.196078, 0.0745098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Level1Dialogue/Speech"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -888,9 +887,11 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "I hope you brought an army"
+bbcode_enabled = true
+text = "I hope you brought an [wave amp=50 freq=2]army[/wave]"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Level1Dialogue/Speech"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -900,7 +901,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "You're going to need one to get past me and my brothers"
+bbcode_enabled = true
+text = "You're going to need one to get past me and my [shake rate=5 level=10]brothers[/shake]"
 
 [node name="Rudy" type="TextureRect" parent="Level1Dialogue/Speech"]
 visible = false
@@ -963,7 +965,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "Who are you? What happened to my brothers?"
+bbcode_enabled = true
+text = "Who are you? What happened to my [shake rate=6 level=15]brothers[/shake]?"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Level2Dialogue/Speech"]
 visible = false
@@ -989,7 +992,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "You defeated them? By yourself?"
+bbcode_enabled = true
+text = "[shake rate=15 level=10]You defeated them?[/shake]    [tornado radius=5 freq=2]By yourself?[/tornado]"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Level2Dialogue/Speech"]
 visible = false
@@ -1015,7 +1019,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "No, you're next"
+bbcode_enabled = true
+text = "No, [shake rate=15 level=10]you're[/shake] next"
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="Level2Dialogue/Speech"]
 visible = false
@@ -1028,7 +1033,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "You're not getting past me"
+bbcode_enabled = true
+text = "[rainbow freq=0.5 sat=5 val=20]You're not getting past me[/rainbow]"
 
 [node name="Rudy" type="TextureRect" parent="Level2Dialogue/Speech"]
 visible = false
@@ -1091,7 +1097,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "You shouldn't be here"
+bbcode_enabled = true
+text = "[wave amp=50 freq=10]You shouldn't be here[/wave]"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Level3Dialogue/Speech"]
 visible = false
@@ -1117,7 +1124,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Thats impossible, only a one person army could defeat them"
+bbcode_enabled = true
+text = "[shake rate=10 level=10]Thats impossible[/shake], only a one person army could defeat them"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Level3Dialogue/Speech"]
 visible = false
@@ -1143,7 +1151,8 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "No, you're next"
+bbcode_enabled = true
+text = "[rainbow freq=0.5 sat=10 val=20]No, you're next[/rainbow]"
 
 [node name="Rudy" type="TextureRect" parent="Level3Dialogue/Speech"]
 visible = false

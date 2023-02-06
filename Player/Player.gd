@@ -143,6 +143,7 @@ func _on_animation_player_animation_finished(anim_name):
 		entered.emit()
 		
 func take_damage(damage):
+	if locked: return
 	if $HUDLayer/Control/Life.visible:
 		$HUDLayer/Control/Life.visible = false
 	else:
