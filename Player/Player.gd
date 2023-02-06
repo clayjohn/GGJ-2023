@@ -15,15 +15,15 @@ var attack_queued = false
 var just_born = false
 
 signal fully_born
+signal entered
 
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if locked: return
 	
 	var directionx = Input.get_axis("left", "right")
-	var requested_animation = current_animation
 	var velocityx = Vector2(0, 0)
 	if directionx:
 		velocityx = lateral_direction * directionx
@@ -137,6 +137,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Enter":
 		locked = false
 		$Shape.disabled = false
+		entered.emit()
 		
 func take_damage(damage):
 	print("Hirt for ", damage)

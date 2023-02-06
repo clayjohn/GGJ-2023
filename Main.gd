@@ -62,3 +62,16 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_player_fully_born():
 	$AnimationPlayer.play("menu-dialogue")
+
+func _on_player_entered_level():
+	match next_level:
+		1:
+			pass # Menu is handled on its own
+		2:
+			$AnimationPlayer.play("level1-dialogue")
+		3:
+			$AnimationPlayer.play("level2-dialogue")
+		4:
+			$AnimationPlayer.play("level3-dialogue")
+		5:
+			$AnimationPlayer.play("boss-dialogue")

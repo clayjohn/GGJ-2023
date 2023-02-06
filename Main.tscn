@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://8bgpl4v55iow"]
+[gd_scene load_steps=20 format=3 uid="uid://8bgpl4v55iow"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_g7fd7"]
 [ext_resource type="PackedScene" uid="uid://b8ov6dqfa0al5" path="res://Player/Player.tscn" id="2_yqqm4"]
 [ext_resource type="PackedScene" uid="uid://cmvbq5v0smht0" path="res://Menu/Menu.tscn" id="3_5surq"]
 [ext_resource type="Texture2D" uid="uid://bw5j3rmqv80c" path="res://Assets/Textures/Rudy Idle Sheet V1.png" id="4_o78fc"]
+[ext_resource type="Texture2D" uid="uid://imeysgbwg3nj" path="res://Assets/Enemies/WormIdle-Sheet.png" id="5_ft6lu"]
+[ext_resource type="Texture2D" uid="uid://hyw8ob5mc7mw" path="res://Assets/Textures/Boss Talking and Attack V2.png" id="6_5dgx6"]
 
 [sub_resource type="Animation" id="Animation_o8kte"]
 resource_name = "FadeIn"
@@ -93,17 +95,673 @@ tracks/2/keys = {
 "values": [false, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_341qh"]
+resource_name = "level1-dialogue"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level1Dialogue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level1Dialogue/Speech/RichTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Level1Dialogue/Speech/RichTextLabel2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level1Dialogue/Speech/Rudy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level1Dialogue/Speech/Enemy:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xij84"]
+resource_name = "level2-dialogue"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level2Dialogue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level2Dialogue/Speech/Enemy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3.5, 5, 6.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Level2Dialogue/Speech/Rudy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 3.5, 5, 6.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level2Dialogue/Speech/RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level2Dialogue/Speech/RichTextLabel2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Level2Dialogue/Speech/RichTextLabel3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Level2Dialogue/Speech/RichTextLabel4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5, 6.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Level2Dialogue/Speech/RichTextLabel5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 6.8, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Level2Dialogue/Speech/RichTextLabel6:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8.3, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bf27v"]
+resource_name = "level3-dialogue"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level3Dialogue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level3Dialogue/Speech/Enemy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Level3Dialogue/Speech/Rudy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level3Dialogue/Speech/RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Level3Dialogue/Speech/RichTextLabel2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Level3Dialogue/Speech/RichTextLabel3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Level3Dialogue/Speech/RichTextLabel4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Level3Dialogue/Speech/RichTextLabel5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_75f8w"]
+resource_name = "boss-dialogue"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BossDialogue:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BossDialogue/Speech/Boss:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BossDialogue/Speech/Rudy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BossDialogue/Speech/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BossDialogue/Speech/Label2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../BossDialogue/Speech/Label3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BossDialogue/Speech/Label4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BossDialogue/Speech/Label5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BossDialogue/Speech/Label6:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BossDialogue/Speech/Label7:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 10.5, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_j1upc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Level3Dialogue/Speech/RichTextLabel2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Level3Dialogue/Speech/Rudy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Level3Dialogue/Speech/Enemy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Level3Dialogue/Speech/RichTextLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../MenuDialogue:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Level1Dialogue:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Level2Dialogue:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Level3Dialogue:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BossDialogue:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Level3Dialogue/Speech/RichTextLabel3:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Level3Dialogue/Speech/RichTextLabel4:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Level3Dialogue/Speech/RichTextLabel5:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../BossDialogue/Speech/Label:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../BossDialogue/Speech/Label2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../BossDialogue/Speech/Label3:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../BossDialogue/Speech/Label4:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../BossDialogue/Speech/Label5:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../BossDialogue/Speech/Label6:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../BossDialogue/Speech/Label7:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhx6l"]
 _data = {
 "FadeIn": SubResource("Animation_o8kte"),
 "FadeOut": SubResource("Animation_2kw2p"),
+"RESET": SubResource("Animation_j1upc"),
 "Slide": SubResource("Animation_qiysg"),
+"boss-dialogue": SubResource("Animation_75f8w"),
+"level1-dialogue": SubResource("Animation_341qh"),
+"level2-dialogue": SubResource("Animation_xij84"),
+"level3-dialogue": SubResource("Animation_bf27v"),
 "menu-dialogue": SubResource("Animation_g4sqa")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxmb4"]
 atlas = ExtResource("4_o78fc")
 region = Rect2(22, 18, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e4cb"]
+atlas = ExtResource("5_ft6lu")
+region = Rect2(18, 13, 31, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euj41"]
+atlas = ExtResource("6_5dgx6")
+region = Rect2(23, 33, 18, 18)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -125,6 +783,7 @@ offset_bottom = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasModulate")
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_fhx6l")
 }
@@ -163,7 +822,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 61.0
-offset_top = -40.0
+offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "I have finally arrived at the mother root
@@ -222,20 +881,6 @@ color = Color(0.305882, 0.196078, 0.0745098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Level1Dialogue/Speech"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 61.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "I have finally arrived at the mother root
-"
-fit_content = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Level1Dialogue/Speech"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -245,10 +890,23 @@ anchor_bottom = 1.0
 offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
-grow_vertical = 0
-text = "Time to find Root Rot and put an end to his reign of terror."
+grow_vertical = 2
+text = "I hope you brought an army"
 
-[node name="Face" type="TextureRect" parent="Level1Dialogue/Speech"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Level1Dialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "You're going to need one to get past me and my brothers"
+
+[node name="Rudy" type="TextureRect" parent="Level1Dialogue/Speech"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -257,6 +915,17 @@ offset_top = -64.0
 offset_right = 64.0
 grow_vertical = 0
 texture = SubResource("AtlasTexture_rxmb4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy" type="TextureRect" parent="Level1Dialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 62.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_6e4cb")
 metadata/_edit_use_anchors_ = true
 
 [node name="Level2Dialogue" type="CanvasLayer" parent="."]
@@ -287,18 +956,17 @@ color = Color(0.305882, 0.196078, 0.0745098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Level2Dialogue/Speech"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 61.0
-offset_top = -40.0
+offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "I have finally arrived at the mother root
-"
-fit_content = true
+text = "Who are you? What happened to my brothers?"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Level2Dialogue/Speech"]
 visible = false
@@ -311,9 +979,62 @@ offset_left = 61.0
 offset_top = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Time to find Root Rot and put an end to his reign of terror."
+text = "I defeated them"
 
-[node name="Face" type="TextureRect" parent="Level2Dialogue/Speech"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Level2Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "You defeated them? By yourself?"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Level2Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Yes and you're next"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Level2Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "No, you're next"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Level2Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "You're not getting past me"
+
+[node name="Rudy" type="TextureRect" parent="Level2Dialogue/Speech"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -324,5 +1045,271 @@ grow_vertical = 0
 texture = SubResource("AtlasTexture_rxmb4")
 metadata/_edit_use_anchors_ = true
 
+[node name="Enemy" type="TextureRect" parent="Level2Dialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 62.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_6e4cb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level3Dialogue" type="CanvasLayer" parent="."]
+layer = 12
+visible = false
+
+[node name="Speech" type="Control" parent="Level3Dialogue"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="Level3Dialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+color = Color(0.305882, 0.196078, 0.0745098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "You shouldn't be here"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "I beat all your brothers and I'm going to beat you too"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Thats impossible, only a one person army could defeat them"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Well I did, and you're next"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "No, you're next"
+
+[node name="Rudy" type="TextureRect" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rxmb4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy" type="TextureRect" parent="Level3Dialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 62.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_6e4cb")
+metadata/_edit_use_anchors_ = true
+
+[node name="BossDialogue" type="CanvasLayer" parent="."]
+layer = 12
+visible = false
+
+[node name="Speech" type="Control" parent="BossDialogue"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+color = Color(0.305882, 0.196078, 0.0745098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Rudy" type="TextureRect" parent="BossDialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_rxmb4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Boss" type="TextureRect" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_euj41")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="BossDialogue/Speech"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "Welcome to the [wave amp=50 freq=2.5][rainbow freq=0.3 sat=10 val=20]heart of the root[/rainbow][/wave] Rudy."
+fit_content = true
+
+[node name="Label2" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "You are [shake rate=3 level=15]stunned[/shake], I can tell."
+fit_content = true
+
+[node name="Label3" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "I suppose you are thinking \"Root Rot looks so beautiful. How can he be the big bad?\""
+fit_content = true
+
+[node name="Label4" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "Welcome to [tornado radius=4 freq=3]reality[/tornado] kid."
+fit_content = true
+
+[node name="Label5" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "Truth is I'm actually a nice guy, if you get to know me. But no one ever does."
+fit_content = true
+
+[node name="Label6" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "Everyone has always picked on me for no reason.
+"
+fit_content = true
+
+[node name="Label7" type="RichTextLabel" parent="BossDialogue/Speech"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+bbcode_enabled = true
+text = "Anyway, time for you to [color=red][shake rate=15 level=10]die[/shake][/color]. Fight me.
+"
+fit_content = true
+
+[connection signal="entered" from="Player" to="." method="_on_player_entered_level"]
 [connection signal="fully_born" from="Player" to="." method="_on_player_fully_born"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

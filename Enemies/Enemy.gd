@@ -24,10 +24,10 @@ func _ready():
 	randomize()
 	$AnimatedSprite2D.play("Idle")
 
-func follow_player(dt):
+func follow_player(_dt):
 	direction = (player.transform.origin - transform.origin).normalized()
 
-func walk_strafe(dt):
+func walk_strafe(_dt):
 	if Time.get_ticks_msec() - last_epoch > patrol_period:
 		if strafe_dir == STRAFE_DIR.VERT:
 			if direction.x > 0.01 or direction.x < -0.01:
@@ -39,7 +39,7 @@ func walk_strafe(dt):
 			direction.x = -direction.x
 		last_epoch = Time.get_ticks_msec()
 	
-func walk_random(dt):
+func walk_random(_dt):
 	if Time.get_ticks_msec() - last_epoch > patrol_period:
 		direction = rand_unit()
 		last_epoch = Time.get_ticks_msec()
@@ -66,7 +66,7 @@ func _on_vision_body_entered(body):
 	if body == player:
 		can_see_player = true
 
-func _on_vision_body_exited(body):
+func _on_vision_body_exited(_body):
 	pass
 
 
@@ -80,7 +80,7 @@ func _on_attack_range_body_exited(body):
 		$AnimatedSprite2D.animation = "Idle"
 
 
-func _on_long_site_body_entered(body):
+func _on_long_site_body_entered(_body):
 	pass
 
 func _on_long_site_body_exited(body):
