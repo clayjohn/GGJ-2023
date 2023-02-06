@@ -148,4 +148,7 @@ func take_damage(damage):
 		died.emit()
 	$AnimationPlayer.play("hit")
 
-
+func _on_attack_body_entered(body):
+	if not attacking: return
+	if body.get("is_enemy"):
+		body.die()
