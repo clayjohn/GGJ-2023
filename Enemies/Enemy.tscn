@@ -77,7 +77,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d50jg"]
-size = Vector2(22, 35)
+size = Vector2(30, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q63i7"]
 size = Vector2(43, 64)
@@ -86,9 +86,12 @@ size = Vector2(43, 64)
 radius = 127.252
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_7hnij")
 
 [node name="Vision" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="Sight" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_q7u84")
@@ -100,17 +103,19 @@ animation = &"Attack"
 frame_progress = 0.565803
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -17.5)
+position = Vector2(2, -22)
 shape = SubResource("RectangleShape2D_d50jg")
 
 [node name="AttackRange" type="Area2D" parent="."]
 position = Vector2(0, -32)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(3.5, 10)
 shape = SubResource("RectangleShape2D_q63i7")
 
 [node name="LongSite" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LongSite"]
 shape = SubResource("CircleShape2D_6pi3k")

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cx01ymfbkm5rp" path="res://Assets/Backgrounds/Level 4 Door Bottom.png" id="3_1hqwk"]
 [ext_resource type="Texture2D" uid="uid://dt47ebgtoowas" path="res://Assets/Backgrounds/Level 4 Background.png" id="4_jlaqg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnvhp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqlhf"]
 size = Vector2(16, 70)
 
-[sub_resource type="Animation" id="Animation_mv2oc"]
+[sub_resource type="Animation" id="Animation_fkchm"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [Vector2(280, 128)]
 }
 
-[sub_resource type="Animation" id="Animation_0mgy1"]
+[sub_resource type="Animation" id="Animation_fknya"]
 resource_name = "enter"
 length = 5.5
 tracks/0/type = "value"
@@ -52,19 +52,19 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3i10"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv1wk"]
 _data = {
-"RESET": SubResource("Animation_mv2oc"),
-"enter": SubResource("Animation_0mgy1")
+"RESET": SubResource("Animation_fkchm"),
+"enter": SubResource("Animation_fknya")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_udn2l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahcol"]
 size = Vector2(16, 243.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_51xm0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi6mh"]
 size = Vector2(16, 180)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_22o4u"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g37o8"]
 size = Vector2(60, 5)
 
 [node name="Level" type="Node2D"]
@@ -81,7 +81,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
 position = Vector2(0, -120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_pnvhp")
+shape = SubResource("RectangleShape2D_mqlhf")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
@@ -94,12 +94,12 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
 position = Vector2(0, 120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_pnvhp")
+shape = SubResource("RectangleShape2D_mqlhf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter"
 libraries = {
-"": SubResource("AnimationLibrary_n3i10")
+"": SubResource("AnimationLibrary_hv1wk")
 }
 
 [node name="Background" type="TextureRect" parent="."]
@@ -114,31 +114,31 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 134)
-shape = SubResource("RectangleShape2D_udn2l")
+shape = SubResource("RectangleShape2D_ahcol")
 
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(440, 134.25)
-shape = SubResource("RectangleShape2D_udn2l")
+shape = SubResource("RectangleShape2D_ahcol")
 
 [node name="TopLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(86.75, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_51xm0")
+shape = SubResource("RectangleShape2D_wi6mh")
 
 [node name="TopRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(360, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_51xm0")
+shape = SubResource("RectangleShape2D_wi6mh")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(88, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_51xm0")
+shape = SubResource("RectangleShape2D_wi6mh")
 
 [node name="BottomRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(350, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_51xm0")
+shape = SubResource("RectangleShape2D_wi6mh")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(224, 253)
@@ -146,6 +146,6 @@ monitoring = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("RectangleShape2D_22o4u")
+shape = SubResource("RectangleShape2D_g37o8")
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

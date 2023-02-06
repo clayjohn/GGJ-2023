@@ -48,9 +48,13 @@ func _input(event):
 		attack_queued = true
 		
 func attack_surroundings():
-	if not $Attack.has_overlapping_bodies(): return
+	if not $Attack.has_overlapping_bodies(): 
+		print("no overllaping bodies")
+		return
 
 	for body in $Attack.get_overlapping_bodies():
+		print("hitting an enemy")
+		print(body is CharacterBody2D)
 		if body.get("is_enemy"):
 			body.die()
 
@@ -98,11 +102,10 @@ func finished_attack():
 	if attack_queued:
 		$Sprite.play("attack-heavy" + get_animation_direction(last_direction))
 		attack_queued = false
-		$Attack.rotation = get_attack_rotation()
+		attack_surroundings()
 	else:
 		attacking = false
 		$Sprite.play(current_animation)
-		$Attack/CollisionPolygon2D.disabled = true
 
 func freeze_player():
 	$Shape.disabled = true
@@ -121,6 +124,10 @@ func _on_animation_player_animation_finished(anim_name):
 		
 func take_damage(damage):
 	print("Hirt for ", damage)
+	if $HUDLayer/Control/Life.visible:
+		$HUDLayer/Control/Life.visible = false
+	else:
+		print("player ded")
 	$AnimationPlayer.play("hit")
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://b8ov6dqfa0al5"]
+[gd_scene load_steps=99 format=3 uid="uid://b8ov6dqfa0al5"]
 
 [ext_resource type="Texture2D" uid="uid://bw5j3rmqv80c" path="res://Assets/Textures/Rudy Idle Sheet V1.png" id="1_0q360"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ijddw"]
@@ -732,8 +732,13 @@ _data = {
 "hit": SubResource("Animation_ej5jo")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kwru"]
+radius = 20.441
+height = 54.0
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(224, -30)
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ijddw")
 
@@ -852,9 +857,12 @@ libraries = {
 [node name="Attack" type="Area2D" parent="."]
 position = Vector2(0, -16)
 rotation = -3.14159
+collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
-polygon = PackedVector2Array(-2.99998, -14, 14, -13, 26, -1, 26, -1, 36, 2.00001, 37, 7.00001, 35, 10, 34, 12, 33, 18, 33, 22, 26, 30, 23, 33, 19, 34, 13, 33, 7, 31, 1, 28, -2, 22, -11, 11, -12, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(11, 11)
+rotation = -0.837758
+shape = SubResource("CapsuleShape2D_7kwru")
 
 [connection signal="animation_finished" from="Sprite" to="." method="finished_attack"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
