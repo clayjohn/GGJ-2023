@@ -40,10 +40,10 @@ func switch_level(body):
 
 func _switch_level(level: int):
 	if level > 0:
-		$Player.enter_dungeon()
+		$Player.enter_dungeon.call_deferred()
 #	current_level.queue_free.call_deferred()
 	current_level.exit_reached.disconnect(switch_level)
-	remove_child.call_deferred(current_level)
+	remove_child(current_level)
 	upcoming_level = levels[level]
 	upcoming_level.position.y = 0 #reset if it has slid before
 	if level >0:
