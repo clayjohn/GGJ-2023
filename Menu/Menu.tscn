@@ -32,7 +32,7 @@ size = Vector2(63, 1134)
 script = ExtResource("1_ptcsm")
 
 [node name="Grass" type="TextureRect" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -0.218018
@@ -41,7 +41,7 @@ texture = ExtResource("2_0dbee")
 
 [node name="Tree" type="TextureRect" parent="."]
 z_index = 12
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -0.218018
