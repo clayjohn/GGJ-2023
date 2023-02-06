@@ -46,7 +46,7 @@ func _physics_process(_delta):
 
 func _input(event):
 	if event.is_action_pressed("attack") and not attacking:
-		$Sprite.animation = "attack-light" + get_animation_direction(last_direction)
+		$Sprite.play("attack-light" + get_animation_direction(last_direction))
 		attacking = true
 		attack_surroundings()
 	elif event.is_action_pressed("attack") and attacking:
@@ -128,7 +128,7 @@ func thaw_player():
 func enter_dungeon():
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
 	position.y = -30
-	$Sprite.animation = "idle-front-right"
+	$Sprite.play("idle-front-right")
 	$AnimationPlayer.play("Enter")
 
 func get_born():

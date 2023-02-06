@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://63w1g6jtp56v"]
+[gd_scene load_steps=14 format=3 uid="uid://63w1g6jtp56v"]
 
 [ext_resource type="Script" path="res://Level/Level1.gd" id="1_0ya5n"]
 [ext_resource type="Texture2D" uid="uid://2k080gnh6lde" path="res://Assets/Backgrounds/Level 4 Door Top.png" id="2_kv2qy"]
 [ext_resource type="Texture2D" uid="uid://cx01ymfbkm5rp" path="res://Assets/Backgrounds/Level 4 Door Bottom.png" id="3_1hqwk"]
+[ext_resource type="Animation" uid="uid://b6idrdb6yt2es" path="res://Assets/animations/OpenExit.res" id="4_j1k14"]
 [ext_resource type="Texture2D" uid="uid://dt47ebgtoowas" path="res://Assets/Backgrounds/Level 4 Background.png" id="4_jlaqg"]
+[ext_resource type="PackedScene" uid="uid://pynn61t5n1oy" path="res://Enemies/Enemy.tscn" id="5_4mmmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4pbr"]
 size = Vector2(16, 70)
@@ -22,6 +24,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(280, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 128)]
 }
 
 [sub_resource type="Animation" id="Animation_jir5h"]
@@ -54,6 +68,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dyqq"]
 _data = {
+"OpenExit": ExtResource("4_j1k14"),
 "RESET": SubResource("Animation_2qu1p"),
 "enter": SubResource("Animation_jir5h")
 }
@@ -85,7 +100,7 @@ shape = SubResource("RectangleShape2D_i4pbr")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
-position = Vector2(264, 128)
+position = Vector2(224, 128)
 texture = ExtResource("3_1hqwk")
 metadata/_edit_lock_ = true
 
@@ -142,10 +157,37 @@ shape = SubResource("RectangleShape2D_iq1rb")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(224, 253)
-monitoring = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource("RectangleShape2D_7c08k")
+
+[node name="Enemy" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(188, 111)
+strafe_dir = 1
+
+[node name="Enemy2" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(103, 77)
+strafe_dir = 1
+
+[node name="Enemy3" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(146, 131)
+strafe_dir = 1
+
+[node name="Enemy4" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(188, 171)
+strafe_dir = 1
+
+[node name="Enemy5" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(135, 197)
+strafe_dir = 1
+
+[node name="Enemy6" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(308, 80)
+strafe_dir = 1
+
+[node name="Enemy7" parent="." instance=ExtResource("5_4mmmc")]
+position = Vector2(251, 148)
+strafe_dir = 1
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

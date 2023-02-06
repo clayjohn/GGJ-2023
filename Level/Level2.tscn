@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7w1xj8jsb646"]
+[gd_scene load_steps=14 format=3 uid="uid://c7w1xj8jsb646"]
 
 [ext_resource type="Script" path="res://Level/Level1.gd" id="1_0ks46"]
 [ext_resource type="Texture2D" uid="uid://cnuvlyukc4io3" path="res://Assets/Backgrounds/Level 3 Door Top.png" id="2_toa81"]
 [ext_resource type="Texture2D" uid="uid://lu4qhb40lmo3" path="res://Assets/Backgrounds/Level 3 Door Bottom.png" id="3_u1746"]
 [ext_resource type="Texture2D" uid="uid://qbqyj40ipsqc" path="res://Assets/Backgrounds/Level 3 Background.png" id="4_dhl6q"]
+[ext_resource type="Animation" uid="uid://b6idrdb6yt2es" path="res://Assets/animations/OpenExit.res" id="4_fdhbg"]
+[ext_resource type="PackedScene" uid="uid://pynn61t5n1oy" path="res://Enemies/Enemy.tscn" id="5_ekv8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mryou"]
 size = Vector2(16, 70)
@@ -21,7 +23,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(280, 128)]
+"values": [Vector2(224, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 128)]
 }
 
 [sub_resource type="Animation" id="Animation_baigy"]
@@ -54,6 +68,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aapim"]
 _data = {
+"OpenExit": ExtResource("4_fdhbg"),
 "RESET": SubResource("Animation_jahyt"),
 "enter": SubResource("Animation_baigy")
 }
@@ -72,7 +87,7 @@ script = ExtResource("1_0ks46")
 
 [node name="Door" type="Sprite2D" parent="."]
 z_index = -11
-position = Vector2(280, 128)
+position = Vector2(224, 128)
 texture = ExtResource("2_toa81")
 metadata/_edit_lock_ = true
 
@@ -85,7 +100,7 @@ shape = SubResource("RectangleShape2D_mryou")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
-position = Vector2(264, 128)
+position = Vector2(224, 128)
 texture = ExtResource("3_u1746")
 metadata/_edit_lock_ = true
 
@@ -142,10 +157,36 @@ shape = SubResource("RectangleShape2D_7856p")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(224, 253)
-monitoring = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource("RectangleShape2D_ayolt")
+
+[node name="Enemy" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(315, 83)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(59, 120)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(124, 118)
+patrol_pattern = 1
+
+[node name="Enemy4" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(45, 204)
+patrol_pattern = 1
+
+[node name="Enemy5" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(189, 201)
+patrol_pattern = 1
+
+[node name="Enemy6" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(389, 141)
+patrol_pattern = 1
+strafe_dir = 1
+
+[node name="Enemy7" parent="." instance=ExtResource("5_ekv8k")]
+position = Vector2(364, 219)
+patrol_pattern = 1
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
