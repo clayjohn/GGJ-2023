@@ -104,6 +104,7 @@ func finished_attack():
 	if just_born:
 		just_born = false
 		fully_born.emit()
+		$Sprite.play("idle-front-right")
 		return
 
 	if attack_queued:
