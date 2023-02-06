@@ -46,6 +46,8 @@ func _switch_level(level: int):
 	remove_child.call_deferred(current_level)
 	upcoming_level = levels[level]
 	upcoming_level.position.y = 0 #reset if it has slid before
+	if level >0:
+		upcoming_level.get_node("AnimationPlayer").play("enter")
 	add_child.call_deferred(upcoming_level)
 	current_level = upcoming_level
 	current_level.exit_reached.connect(switch_level)
@@ -55,6 +57,7 @@ func _switch_level_slide(level: int):
 	$Player.freeze_player.call_deferred()
 	upcoming_level = levels[level]
 	upcoming_level.position.y = 256
+	upcoming_level.get_node("AnimationPlayer").play("enter")
 	add_child.call_deferred(upcoming_level)
 	$AnimationPlayer.play("Slide")
 
@@ -63,7 +66,7 @@ func _on_animation_player_animation_finished(anim_name):
 		$AnimationPlayer.play("FadeIn")
 		_switch_level(next_level)
 	elif anim_name == "Slide":
-#		current_level.queue_free.call_deferred()
+#		current_level.queue_free.call_deferautoplay = "enter"red()
 		current_level.exit_reached.disconnect(switch_level)
 		remove_child.call_deferred(current_level)
 		$Player.enter_dungeon.call_deferred()
@@ -122,5 +125,7 @@ func _on_player_died():
 	$Player.position.y = 128
 	$Player/HUDLayer/Control/Life.visible = true
 	$Player.get_born.call_deferred()
+	# HACK: Open the entrance door when a player dies in a room
+	current_level.get_node("Door").position.x = 280
 	next_level = 0
 	call_deferred("_switch_level",next_level)
