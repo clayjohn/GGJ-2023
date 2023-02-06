@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://berbj0v8lyh2w" path="res://Assets/Backgrounds/Level 2 Background Outside Glow.png" id="4_5ht2l"]
 [ext_resource type="PackedScene" uid="uid://pynn61t5n1oy" path="res://Enemies/Enemy.tscn" id="7_cpb5f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtca2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n6lm"]
 size = Vector2(16, 70)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6th73"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pa2ir"]
 polygon = PackedVector2Array(-36, -128, -33, -122, -17, -111, 4, -108, 31, -115, 39, -127, 39, -132, -36, -132)
 
-[sub_resource type="Animation" id="Animation_7m2o5"]
+[sub_resource type="Animation" id="Animation_s284b"]
 resource_name = "OpenExit"
 length = 2.5
 tracks/0/type = "value"
@@ -29,7 +29,7 @@ tracks/0/keys = {
 "values": [Vector2(224, 128), Vector2(224, 130), Vector2(224, 128), Vector2(280, 128)]
 }
 
-[sub_resource type="Animation" id="Animation_bxl1a"]
+[sub_resource type="Animation" id="Animation_ndhtr"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "values": [Vector2(224, 128)]
 }
 
-[sub_resource type="Animation" id="Animation_h0gbu"]
+[sub_resource type="Animation" id="Animation_g8xty"]
 resource_name = "enter"
 length = 5.5
 tracks/0/type = "value"
@@ -73,26 +73,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcgl3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2f0x"]
 _data = {
-"OpenExit": SubResource("Animation_7m2o5"),
-"RESET": SubResource("Animation_bxl1a"),
-"enter": SubResource("Animation_h0gbu")
+"OpenExit": SubResource("Animation_s284b"),
+"RESET": SubResource("Animation_ndhtr"),
+"enter": SubResource("Animation_g8xty")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tudcb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08mu6"]
 size = Vector2(16, 243.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_molsm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8awk"]
 size = Vector2(16, 180)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s2oqr"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_34j1k"]
 polygon = PackedVector2Array(187, 0, 180, 7, 71, 7, 71, -20, 187, -20)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l756r"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3xjqk"]
 polygon = PackedVector2Array(263, 0, 263, 2, 270, 9, 327, 17, 357, 16, 356, -22, 263, -22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0olvt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ahq"]
 size = Vector2(60, 5)
 
 [node name="Level" type="Node2D"]
@@ -109,10 +109,10 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
 position = Vector2(0, -120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_jtca2")
+shape = SubResource("RectangleShape2D_1n6lm")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Door"]
-occluder = SubResource("OccluderPolygon2D_6th73")
+occluder = SubResource("OccluderPolygon2D_pa2ir")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
@@ -127,12 +127,12 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
 position = Vector2(0, 120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_jtca2")
+shape = SubResource("RectangleShape2D_1n6lm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter"
 libraries = {
-"": SubResource("AnimationLibrary_kcgl3")
+"": SubResource("AnimationLibrary_t2f0x")
 }
 
 [node name="Background" type="TextureRect" parent="."]
@@ -157,37 +157,37 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 134)
-shape = SubResource("RectangleShape2D_tudcb")
+shape = SubResource("RectangleShape2D_08mu6")
 
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(440, 134.25)
-shape = SubResource("RectangleShape2D_tudcb")
+shape = SubResource("RectangleShape2D_08mu6")
 
 [node name="TopLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(86.75, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_molsm")
+shape = SubResource("RectangleShape2D_t8awk")
 
 [node name="TopRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(360, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_molsm")
+shape = SubResource("RectangleShape2D_t8awk")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(88, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_molsm")
+shape = SubResource("RectangleShape2D_t8awk")
 
 [node name="BottomRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(350, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_molsm")
+shape = SubResource("RectangleShape2D_t8awk")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Walls"]
-occluder = SubResource("OccluderPolygon2D_s2oqr")
+occluder = SubResource("OccluderPolygon2D_34j1k")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Walls"]
-occluder = SubResource("OccluderPolygon2D_l756r")
+occluder = SubResource("OccluderPolygon2D_3xjqk")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(224, 253)
@@ -196,7 +196,7 @@ collision_mask = 3
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("RectangleShape2D_0olvt")
+shape = SubResource("RectangleShape2D_12ahq")
 
 [node name="Enemy" parent="." instance=ExtResource("7_cpb5f")]
 position = Vector2(251, 111)

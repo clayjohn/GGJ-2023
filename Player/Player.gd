@@ -16,6 +16,7 @@ var just_born = false
 
 signal fully_born
 signal entered
+signal died
 
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
@@ -102,10 +103,7 @@ func get_attack_rotation():
 func finished_attack():
 	if just_born:
 		just_born = false
-		locked = false
-		$Shape.disabled = false
 		fully_born.emit()
-		$Sprite.play("idle-front-right")
 		return
 
 	if attack_queued:
@@ -119,7 +117,12 @@ func finished_attack():
 func freeze_player():
 	$Shape.disabled = true
 	locked = true
-	$Sprite.animation = "idle-front-right"
+	$Sprite.play("idle-front-right")
+
+func thaw_player():
+	locked = false
+	$Shape.disabled = false
+	$Sprite.play("idle-front-right")
 	
 func enter_dungeon():
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
@@ -135,16 +138,13 @@ func get_born():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Enter":
-		locked = false
-		$Shape.disabled = false
 		entered.emit()
 		
 func take_damage(damage):
-	print("Hirt for ", damage)
 	if $HUDLayer/Control/Life.visible:
 		$HUDLayer/Control/Life.visible = false
 	else:
-		print("player ded")
+		died.emit()
 	$AnimationPlayer.play("hit")
 
 

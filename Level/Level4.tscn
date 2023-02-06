@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ctlm6gmcrp40h" path="res://Assets/Backgrounds/Level 5 Background.png" id="4_r5ke2"]
 [ext_resource type="PackedScene" uid="uid://onmmy6vy74nn" path="res://Enemies/Boss/Boss.tscn" id="5_316ft"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_smrqq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h033"]
 size = Vector2(16, 70)
 
-[sub_resource type="Animation" id="Animation_yq8dq"]
+[sub_resource type="Animation" id="Animation_cwclf"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [Vector2(280, 128)]
 }
 
-[sub_resource type="Animation" id="Animation_16bjc"]
+[sub_resource type="Animation" id="Animation_ergky"]
 resource_name = "enter"
 length = 5.5
 tracks/0/type = "value"
@@ -53,19 +53,19 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbf5o"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h65qa"]
 _data = {
-"RESET": SubResource("Animation_yq8dq"),
-"enter": SubResource("Animation_16bjc")
+"RESET": SubResource("Animation_cwclf"),
+"enter": SubResource("Animation_ergky")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6ebv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xug3i"]
 size = Vector2(16, 243.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhpkk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jct2"]
 size = Vector2(16, 180)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_amxs7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70wdi"]
 size = Vector2(60, 5)
 
 [node name="Level" type="Node2D"]
@@ -82,7 +82,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
 position = Vector2(0, -120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_smrqq")
+shape = SubResource("RectangleShape2D_6h033")
 
 [node name="Door2" type="Sprite2D" parent="."]
 z_index = -11
@@ -95,12 +95,12 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
 position = Vector2(0, 120)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_smrqq")
+shape = SubResource("RectangleShape2D_6h033")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "enter"
 libraries = {
-"": SubResource("AnimationLibrary_pbf5o")
+"": SubResource("AnimationLibrary_h65qa")
 }
 
 [node name="Background" type="TextureRect" parent="."]
@@ -115,38 +115,38 @@ metadata/_edit_lock_ = true
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 134)
-shape = SubResource("RectangleShape2D_o6ebv")
+shape = SubResource("RectangleShape2D_xug3i")
 
 [node name="Right" type="CollisionShape2D" parent="Walls"]
 position = Vector2(440, 134.25)
-shape = SubResource("RectangleShape2D_o6ebv")
+shape = SubResource("RectangleShape2D_xug3i")
 
 [node name="TopLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(86.75, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_dhpkk")
+shape = SubResource("RectangleShape2D_7jct2")
 
 [node name="TopRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(360, 8)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_dhpkk")
+shape = SubResource("RectangleShape2D_7jct2")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="Walls"]
 position = Vector2(88, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_dhpkk")
+shape = SubResource("RectangleShape2D_7jct2")
 
 [node name="BottomRight" type="CollisionShape2D" parent="Walls"]
 position = Vector2(350, 248)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_dhpkk")
+shape = SubResource("RectangleShape2D_7jct2")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(224, 253)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource("RectangleShape2D_amxs7")
+shape = SubResource("RectangleShape2D_70wdi")
 
 [node name="Boss" parent="." instance=ExtResource("5_316ft")]
 position = Vector2(220, 204)

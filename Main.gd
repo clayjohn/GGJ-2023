@@ -3,13 +3,20 @@ extends Control
 # Responsible for managing the game
 # Handles loading and unloading of scenes
 
-var levels = [preload("res://Level/Level1.tscn"),
+var levels = [preload("res://Menu/Menu.tscn"),
+			preload("res://Level/Level1.tscn"),
 			preload("res://Level/Level2.tscn"),
 			preload("res://Level/Level3.tscn"),
 			preload("res://Level/Level4.tscn"),]
 var next_level: int
 var current_level
 var upcoming_level
+
+var menu_dialogue_finished = false
+var level1_dialogue_finished = false
+var level2_dialogue_finished = false
+var level3_dialogue_finished = false
+var boss_dialogue_finished = false
 
 func _ready():
 	$Player.position.x = 224
@@ -31,9 +38,10 @@ func switch_level(body):
 		_switch_level_slide(next_level)
 
 func _switch_level(level: int):
-	$Player.enter_dungeon()
+	if level > 0:
+		$Player.enter_dungeon()
 	current_level.queue_free.call_deferred()
-	upcoming_level = levels[level-1].instantiate()
+	upcoming_level = levels[level].instantiate()
 	add_child.call_deferred(upcoming_level)
 	current_level = upcoming_level
 	current_level.exit_reached.connect(switch_level)
@@ -41,7 +49,7 @@ func _switch_level(level: int):
 	
 func _switch_level_slide(level: int):
 	$Player.freeze_player.call_deferred()
-	upcoming_level = levels[level-1].instantiate()
+	upcoming_level = levels[level].instantiate()
 	upcoming_level.position.y = 256
 	add_child.call_deferred(upcoming_level)
 	$AnimationPlayer.play("Slide")
@@ -59,19 +67,48 @@ func _on_animation_player_animation_finished(anim_name):
 		current_level = upcoming_level
 		current_level.exit_reached.connect(switch_level)
 		next_level += 1
+	else:
+		if anim_name.get_slice("-", 1) == "dialogue":
+			$Player.thaw_player()
+		
 
 func _on_player_fully_born():
-	$AnimationPlayer.play("menu-dialogue")
+	if not menu_dialogue_finished:
+		$AnimationPlayer.play("menu-dialogue")
+		menu_dialogue_finished = true
+	else:
+		$Player.thaw_player()
 
 func _on_player_entered_level():
 	match next_level:
 		1:
 			pass # Menu is handled on its own
 		2:
-			$AnimationPlayer.play("level1-dialogue")
+			if not level1_dialogue_finished:
+				$Player.freeze_player()
+				$AnimationPlayer.play("level1-dialogue")
+				level1_dialogue_finished = true
 		3:
-			$AnimationPlayer.play("level2-dialogue")
+			if not level2_dialogue_finished:
+				$Player.freeze_player()
+				$AnimationPlayer.play("level2-dialogue")
+				level2_dialogue_finished = true
 		4:
-			$AnimationPlayer.play("level3-dialogue")
+			if not level3_dialogue_finished:
+				$Player.freeze_player()
+				$AnimationPlayer.play("level3-dialogue")
+				level3_dialogue_finished = true
 		5:
-			$AnimationPlayer.play("boss-dialogue")
+			if not boss_dialogue_finished:
+				$Player.freeze_player()
+				$AnimationPlayer.play("boss-dialogue")
+				boss_dialogue_finished = true
+
+
+func _on_player_died():
+	$Player.position.x = 224
+	$Player.position.y = 128
+	$Player/HUDLayer/Control/Life.visible = true
+	$Player.get_born.call_deferred()
+	next_level = 0
+	_switch_level(next_level)
