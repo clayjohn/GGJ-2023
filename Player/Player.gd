@@ -12,6 +12,10 @@ var attacking = false
  # use this so spamming attack feels good
 var attack_queued = false
 
+var just_born = false
+
+signal fully_born
+
 var forward_direction = Vector2(0, 1)
 var lateral_direction = Vector2(1, 0)
 
@@ -96,6 +100,14 @@ func get_attack_rotation():
 	return atan2(diagonal.y, diagonal.x) - deg_to_rad(45)
 
 func finished_attack():
+	if just_born:
+		just_born = false
+		locked = false
+		$Shape.disabled = false
+		fully_born.emit()
+		$Sprite.play("idle-front-right")
+		return
+
 	if attack_queued:
 		$Sprite.play("attack-heavy" + get_animation_direction(last_direction))
 		attack_queued = false
@@ -112,7 +124,14 @@ func freeze_player():
 func enter_dungeon():
 	$Sprite.modulate = Color(0.80, 0.64, 1.0)
 	position.y = -30
+	$Sprite.animation = "idle-front-right"
 	$AnimationPlayer.play("Enter")
+
+func get_born():
+	$Shape.disabled = true
+	locked = true
+	$Sprite.play("grow")
+	just_born = true
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Enter":

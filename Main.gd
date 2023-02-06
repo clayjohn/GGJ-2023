@@ -6,7 +6,7 @@ extends Control
 var levels = [preload("res://Level/Level1.tscn"),
 			preload("res://Level/Level2.tscn"),
 			preload("res://Level/Level3.tscn"),
-			preload("res://Level/Level5.tscn"),]
+			preload("res://Level/Level4.tscn"),]
 var next_level: int
 var current_level
 var upcoming_level
@@ -14,6 +14,7 @@ var upcoming_level
 func _ready():
 	$Player.position.x = 224
 	$Player.position.y = 128
+	$Player.get_born()
 	next_level = 1
 	current_level = $Level
 	current_level.exit_reached.connect(switch_level)
@@ -58,3 +59,6 @@ func _on_animation_player_animation_finished(anim_name):
 		current_level = upcoming_level
 		current_level.exit_reached.connect(switch_level)
 		next_level += 1
+
+func _on_player_fully_born():
+	$AnimationPlayer.play("menu-dialogue")
