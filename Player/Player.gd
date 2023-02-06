@@ -45,6 +45,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _input(event):
+	if locked: return 
 	if event.is_action_pressed("attack") and not attacking:
 		$Sprite.play("attack-light" + get_animation_direction(last_direction))
 		attacking = true
@@ -70,7 +71,7 @@ func get_animation():
 
 	if requested_animation != current_animation and not attacking and not $AnimationPlayer.is_playing():
 		current_animation = requested_animation
-		$Sprite.animation = current_animation
+		$Sprite.play(current_animation)
 
 func get_animation_direction(dir):
 	if dir.x >= 0:

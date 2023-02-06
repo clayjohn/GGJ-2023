@@ -712,8 +712,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kwru"]
-radius = 20.441
-height = 54.0
+radius = 16.9474
+height = 43.8546
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(224, -30)
@@ -724,9 +724,8 @@ script = ExtResource("1_ijddw")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_ajapd")
-animation = &"attack-light-front-right"
-frame = 3
-frame_progress = 1.0
+animation = &"attack-heavy-back-left"
+frame = 1
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -4)
