@@ -63,8 +63,8 @@ func _on_animation_player_animation_finished(anim_name):
 		$AnimationPlayer.play("FadeIn")
 		_switch_level(next_level)
 	elif anim_name == "Slide":
-		current_level.visible = false
 #		current_level.queue_free.call_deferred()
+		current_level.exit_reached.disconnect(switch_level)
 		remove_child.call_deferred(current_level)
 		$Player.enter_dungeon.call_deferred()
 		position.y = 0
@@ -93,22 +93,29 @@ func _on_player_entered_level():
 				$Player.freeze_player()
 				$AnimationPlayer.play("level1-dialogue")
 				level1_dialogue_finished = true
+			else:
+				$Player.thaw_player()
 		3:
 			if not level2_dialogue_finished:
 				$Player.freeze_player()
 				$AnimationPlayer.play("level2-dialogue")
 				level2_dialogue_finished = true
+			else:
+				$Player.thaw_player()
 		4:
 			if not level3_dialogue_finished:
 				$Player.freeze_player()
 				$AnimationPlayer.play("level3-dialogue")
 				level3_dialogue_finished = true
+			else:
+				$Player.thaw_player()
 		5:
 			if not boss_dialogue_finished:
 				$Player.freeze_player()
 				$AnimationPlayer.play("boss-dialogue")
 				boss_dialogue_finished = true
-
+			else:
+				$Player.thaw_player()
 
 func _on_player_died():
 	$Player.position.x = 224
