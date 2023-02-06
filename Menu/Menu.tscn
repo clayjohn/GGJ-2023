@@ -60,7 +60,7 @@ offset_top = -29.988
 offset_right = -0.109009
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[color=green][font_size=16][wave amp=50 freq=2.5]Enter[/wave][/font_size][/color]"
+text = "[color=tan][font_size=16][wave amp=50 freq=2.5]Enter[/wave][/font_size][/color]"
 
 [node name="Area2D" type="Area2D" parent="Tree"]
 position = Vector2(220, 256)
