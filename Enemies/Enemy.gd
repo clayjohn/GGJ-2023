@@ -59,7 +59,6 @@ func _process(delta):
 		direction = direction.bounce(collision.get_normal())
 		
 func die():
-	print("enemy died")
 	has_died.emit()
 	queue_free()
 

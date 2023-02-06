@@ -80,7 +80,7 @@ animations = [{
 size = Vector2(30, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q63i7"]
-size = Vector2(43, 64)
+size = Vector2(32, 58)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pi3k"]
 radius = 127.252
@@ -100,7 +100,7 @@ shape = SubResource("CircleShape2D_q7u84")
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_mt5pw")
 animation = &"Attack"
-frame_progress = 0.565803
+frame_progress = 0.491438
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -22)
@@ -111,7 +111,7 @@ position = Vector2(0, -32)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(3.5, 10)
+position = Vector2(2, 7)
 shape = SubResource("RectangleShape2D_q63i7")
 
 [node name="LongSite" type="Area2D" parent="."]

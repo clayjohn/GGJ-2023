@@ -49,12 +49,9 @@ func _input(event):
 		
 func attack_surroundings():
 	if not $Attack.has_overlapping_bodies(): 
-		print("no overllaping bodies")
 		return
 
 	for body in $Attack.get_overlapping_bodies():
-		print("hitting an enemy")
-		print(body is CharacterBody2D)
 		if body.get("is_enemy"):
 			body.die()
 
