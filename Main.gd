@@ -3,11 +3,7 @@ extends Control
 # Responsible for managing the game
 # Handles loading and unloading of scenes
 
-var levels = [preload("res://Menu/Menu.tscn"),
-			preload("res://Level/Level1.tscn"),
-			preload("res://Level/Level2.tscn"),
-			preload("res://Level/Level3.tscn"),
-			preload("res://Level/Level4.tscn"),]
+var levels = []
 var next_level: int
 var current_level
 var upcoming_level
@@ -19,6 +15,11 @@ var level3_dialogue_finished = false
 var boss_dialogue_finished = false
 
 func _ready():
+	levels.push_back($Level)
+	levels.push_back(load("res://Level/Level1.tscn").instantiate())
+	levels.push_back(load("res://Level/Level2.tscn").instantiate())
+	levels.push_back(load("res://Level/Level3.tscn").instantiate())
+	levels.push_back(load("res://Level/Level4.tscn").instantiate())
 	$Player.position.x = 224
 	$Player.position.y = 128
 	$Player.get_born()
@@ -40,8 +41,10 @@ func switch_level(body):
 func _switch_level(level: int):
 	if level > 0:
 		$Player.enter_dungeon()
-	current_level.queue_free.call_deferred()
-	upcoming_level = levels[level].instantiate()
+#	current_level.queue_free.call_deferred()
+	remove_child.call_deferred(current_level)
+	upcoming_level = levels[level]
+	upcoming_level.position.y = 0 #reset if it has slid before
 	add_child.call_deferred(upcoming_level)
 	current_level = upcoming_level
 	current_level.exit_reached.connect(switch_level)
@@ -49,7 +52,7 @@ func _switch_level(level: int):
 	
 func _switch_level_slide(level: int):
 	$Player.freeze_player.call_deferred()
-	upcoming_level = levels[level].instantiate()
+	upcoming_level = levels[level]
 	upcoming_level.position.y = 256
 	add_child.call_deferred(upcoming_level)
 	$AnimationPlayer.play("Slide")
@@ -60,7 +63,8 @@ func _on_animation_player_animation_finished(anim_name):
 		_switch_level(next_level)
 	elif anim_name == "Slide":
 		current_level.visible = false
-		current_level.queue_free.call_deferred()
+#		current_level.queue_free.call_deferred()
+		remove_child.call_deferred(current_level)
 		$Player.enter_dungeon.call_deferred()
 		position.y = 0
 		upcoming_level.position.y = 0
@@ -111,4 +115,4 @@ func _on_player_died():
 	$Player/HUDLayer/Control/Life.visible = true
 	$Player.get_born.call_deferred()
 	next_level = 0
-	_switch_level(next_level)
+	call_deferred("_switch_level",next_level)

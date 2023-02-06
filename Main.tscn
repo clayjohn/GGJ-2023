@@ -773,9 +773,6 @@ grow_vertical = 2
 script = ExtResource("1_g7fd7")
 
 [node name="Level" parent="." instance=ExtResource("3_5surq")]
-layout_mode = 1
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Player" parent="." instance=ExtResource("2_yqqm4")]
 top_level = true
