@@ -775,7 +775,6 @@ script = ExtResource("1_g7fd7")
 [node name="Level" parent="." instance=ExtResource("3_5surq")]
 
 [node name="Player" parent="." instance=ExtResource("2_yqqm4")]
-top_level = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
